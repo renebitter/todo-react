@@ -2,15 +2,13 @@ const checkButton = (e, index) => {
   console.log(index);
 };
 
-const Todo = ({ tasks }) => {
+const Todo = ({ task }) => {
   return (
     <div>
-      {tasks.map((task, index) => (
-        <div className='todoItem' key={index.toString()}>
-          <input type='checkbox' onClick={(e) => checkButton(e, index)} />
-          <div>{task}</div>
-        </div>
-      ))}
+      <div className='todoItem'>
+        <input type='checkbox' onClick={(e) => checkButton(e, index)} />
+        <div>{task}</div>
+      </div>
     </div>
   );
 };
