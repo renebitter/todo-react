@@ -2,38 +2,42 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [tasks, setTasks] = useState(['task1', 'task2']);
+  const [tasks, setTasks] = useState([]);
+  const [inputText, setInputText] = useState('');
 
-  let inputStringValue;
-
-  const inputString = (e) => {
-    inputStringValue = e.target.value;
+  const handlerInput = (e) => {
+    setInputText(e.target.value);
   };
 
-  const onButtonClick = (e) => {
-    const newArray = [...tasks];
-    console.log(inputStringValue);
-    if (inputStringValue !== undefined) {
-      newArray.push(inputStringValue);
-      setTasks(newArray);
-    }
-
+  const handlerSubmit = (e) => {
     e.preventDefault();
+    const newArray = [...tasks];
+
+    if (inputText !== undefined && inputText !== '') {
+      newArray.push(inputText);
+      setTasks(newArray);
+      e.target.reset();
+      setInputText('');
+    }
   };
 
   const checkButton = (e, index) => {
     console.log(index);
-    // console.log(e.target.value);
-    // e.preventDefault();
   };
 
   return (
-    <form onSubmit={onButtonClick} className='App'>
+    <form onSubmit={handlerSubmit} className='App'>
       <h1>Todos</h1>
+
       <div>
-        <input type='text' onChange={inputString} />
-        {/* <input type='submit' value='Submit' /> */}
+        <input
+          type='text'
+          value={inputText}
+          onChange={handlerInput}
+          placeholder='Enter a Todo...'
+        />
       </div>
+
       <div className='todoContainer'>
         {tasks.map((task, index) => (
           <div className='todoItem' key={index.toString()}>
