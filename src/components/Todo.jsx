@@ -2,7 +2,7 @@ const checkButton = (e, index) => {
   console.log(index);
 };
 
-const Todo = ({ task }) => {
+const Todo = ({ task, index }) => {
   return (
     <div>
       <div className='todoItem'>
