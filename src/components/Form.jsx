@@ -21,6 +21,12 @@ const Form = () => {
     }
   };
 
+  const onDeleteHandle = (index) => {
+    const newArray = [...tasks];
+    newArray.splice(index, 1);
+    setTasks(newArray);
+  };
+
   return (
     <>
       <form onSubmit={handlerSubmit} className='App'>
@@ -35,7 +41,7 @@ const Form = () => {
           />
         </div>
       </form>
-      <List tasks={tasks} />
+      <List tasks={tasks} onDeleteTodo={onDeleteHandle} />
     </>
   );
 };

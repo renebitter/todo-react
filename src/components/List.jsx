@@ -1,10 +1,15 @@
 import Todo from './Todo';
 
-const List = ({ tasks }) => {
+const List = ({ tasks, onDelete, onDeleteTodo }) => {
   return (
     <div className='todoContainer'>
       {tasks.map((task, index) => (
-        <Todo task={task} key={index.toString()} index={index} />
+        <Todo
+          task={task}
+          key={index.toString()}
+          index={index}
+          onDelete={() => onDeleteTodo(index)}
+        />
       ))}
     </div>
   );
