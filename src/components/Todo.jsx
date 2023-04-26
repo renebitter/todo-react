@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
-const checkButton = (e, index) => {
-  console.log(index);
-};
-
-const Todo = ({ task, index, onDelete }) => {
+const Todo = ({ task, onDelete }) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
