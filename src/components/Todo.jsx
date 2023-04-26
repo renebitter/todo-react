@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 const checkButton = (e, index) => {
   console.log(index);
@@ -34,7 +35,7 @@ const Todo = ({ task, index, onDelete }) => {
             padding: '2px',
             textAlign: 'center',
           }}>
-          D
+          <RiDeleteBin6Line />
         </button>
       </div>
     </div>
